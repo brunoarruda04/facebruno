@@ -1,0 +1,18 @@
+version: "2.2"
+services:
+   server:
+      container_name: server
+      build:
+         context: ./server
+         dockerfile: Dockerfile
+      env_file:
+         - ./server/.env
+      restart: always
+      ports:
+         - 3001:3001
+      networks:
+         - network
+
+networks:
+   network:
+      driver: bridge
